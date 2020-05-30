@@ -1,93 +1,35 @@
-commit caaaab0cc6f8e0a6f3b3387e38d8ea45040dd200
+commit d8ece5df97a205516632bf21bd0fa1035d1c0aa2
 Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Sat May 30 20:33:32 2020 +0200
+Date:   Sat May 30 21:38:42 2020 +0200
 
     second commit
 
-commit 4154b11b9e5c674f227fab093be518795689df0e
+commit 16003b9a250bd4053406d8cbf3f0133a1d016f0f
 Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Sat May 30 20:25:04 2020 +0200
+Date:   Sat May 30 21:37:16 2020 +0200
+
+    recent commit
+
+commit 104c3b73df779880cd596b7d4bff42c0143ed59c
+Author: mounika120 <mounikapolisetti97@gmail.com>
+Date:   Sat May 30 21:31:02 2020 +0200
+
+    recent commits
+
+commit 6cb1093afba5d77d4616c529bf67761e1cd58c92
+Author: mounika120 <64479944+mounika120@users.noreply.github.com>
+Date:   Sat May 30 21:15:34 2020 +0200
+
+    Create README.md
+
+commit cb334fca5d55909cb5859babbd1441e2516090ba
+Author: mounika120 <mounikapolisetti97@gmail.com>
+Date:   Thu May 14 20:57:43 2020 +0200
+
+    second commit
+
+commit 79253d87b34327f8d931b7ddaee053288b3f57df
+Author: mounika120 <mounikapolisetti97@gmail.com>
+Date:   Thu May 14 20:56:27 2020 +0200
 
     first commit
-
-commit 9d4efd558aef0509eb78d810ce18f2a9fbe96d3b
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 19:07:42 2020 +0200
-
-    third commit
-
-commit 5c7780ef4abe1c68a46c12328f24b590c5de3b77
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:45:36 2020 +0200
-
-    second commit
-
-commit 8acfa271cd405ac3fca0af23dda1e40df64d8a8a
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:44:50 2020 +0200
-
-    first commit
-
-commit 03226b77fba066b9c4a054817864d7ce01f4adde
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:42:04 2020 +0200
-
-    second commit
-
-commit 9eb83a97e902d43267c149dd18732aca6aaa987a
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:40:49 2020 +0200
-
-    first commit
-
-commit 8578fdb4db20d90a6414ab9eec04bd9b367d3191
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:37:19 2020 +0200
-
-    second commit
-
-commit d569286c2178f4bee886a440c9d92493ad20f6fb
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:36:38 2020 +0200
-
-    first commit
-
-commit e587ef7e77055af8f5d4fd2d65cc06f263e053a1
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:27:21 2020 +0200
-
-    second commit
-
-commit 58610f018488be0ceace59cf787942e62cfb2c53
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:26:05 2020 +0200
-
-    First commit
-
-commit adeb7a339fc7a430cfd5762ee89833db3990a839
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 18:08:05 2020 +0200
-
-    second commit
-
-commit 2db7ceebf95cfaab1b346f78223d4e527fde1eae
-Author: mounika120 <mounikapolisetti97@gmail.com>
-Date:   Fri May 1 17:42:39 2020 +0200
-
-    first commit
-
-commit 4501f44bededae767406942758395d11c86abab9
-Author: parlos <patrik.arlos@gmail.com>
-Date:   Mon Aug 27 13:50:24 2018 +0200
-
-    addition added, over simplified, can only handle integers, not rational numbers.
-    
-    Note the API syntax; <operator>?A=<value1>&B=<value2>
-    
-    Ideally; this should be generalized to also handle POST.
-
-commit ee7b6267973d8d1e64f8849c48d382954d6f62a7
-Author: parlos <patrik.arlos@gmail.com>
-Date:   Tue Aug 21 15:49:28 2018 +0200
-
-    Initial commit, base file and readme.
