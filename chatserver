@@ -7,10 +7,10 @@ import select
 import re 
 
 if len(sys.argv)!=2:
-    print("the input format should be ipaddress:portnumber ")
+    print("the input format should be in ipaddress:portnumber ")
     sys.exit()
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 info = (sys.argv[1])
 a=info.split(':')
@@ -18,7 +18,7 @@ addr=str(a[0])
 port=int(a[1])
 s.bind((addr,port))
 s.listen(100)
-print('wait for the clients to get connected.')')
+print('wait for clients to be connected')
 clients=[]
 clients.append(s)
 
@@ -34,10 +34,10 @@ def clientthread(connection,address):
                 connection.sendall('OK'.encode('utf-8'))
                 break
             elif len(nick1) or regex.search(nick1) != None:
-                connection.sendall('*Err: check nick name'.encode('utf-8'))
+                connection.sendall('err:check nickname'.encode('utf-8'))
             else:
                 connection.close()
-                print(address[0]+" has disconnected")
+                print(address[0]+" client has been disconnected")
                 clients.remove(connection)
                 del clients[connection]
                 break
@@ -55,12 +55,12 @@ def clientthread(connection,address):
             
                 if not message:
                     connection.close()
-                    print(address[0]+" has been disconnected")
+                    print(address[0]+" client has been disconnected")
                     clients.remove(connection)
                     break 
 
                 elif 'MSG ' not in message:
-                    connection.sendall('ERROR malformed message'.encode('utf-8'))
+                    connection.sendall('Error occured in message format'.encode('utf-8'))
                 else:
 
                 
@@ -76,13 +76,13 @@ def clientthread(connection,address):
                                 pass
                     #else if and next elif        
                         if flag != 0:
-                            connection.sendall('ERROR occured, dont use control characters'.encode('utf-8'))
+                            connection.sendall('error in the control characters'.encode('utf-8'))
                         else:
                             message_to_send = 'MSG '+nick1+' ' + message1[:-1]
                 
                             broadcasting(message_to_send,connection,nick1)
                     elif len(message1) > 255 :
-                        connection.sendall('ERROR occured, message length should not exceed 256 characters'.encode('utf-8'))
+                        connection.sendall('message length below 256 characters'.encode('utf-8'))
                    
                 
 
@@ -106,10 +106,11 @@ while True:
     
     connection.sendall('Hello 1'.encode('utf-8'))
     clients.append(connection)
-    print(address[0]+" has connected")
+    print(address[0]+" client has been connected")
     
     start_new_thread(clientthread,(connection,address))
     
 
 connection.close()
 s.close()
+
