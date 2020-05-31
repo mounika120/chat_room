@@ -16,7 +16,7 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 info = (sys.argv[1])
 a=info.split(':')
 addr=str(a[0])
-portn=int(a[1])
+port=int(a[1])
 nick=str(sys.argv[2])
 
 
