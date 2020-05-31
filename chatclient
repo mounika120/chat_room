@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+
+import socket
+import sys
+from _thread import *
+import select 
+import re 
+
+if len(sys.argv)!=3:
+    print("the input format should be ipaddress:portnumber")
+    sys.exit()
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+info = (sys.argv[1])
+arg=info.split(':')
+addr=str(arg[0])
+port=int(arg[1])
+nick=str(sys.argv[2])
+
+
+s.connect((addr, port))
+
+MSG1=s.recv(2048).decode('utf-8')
+print(MSG1)
+nick = 'NICK ' + nick
+s.sendall(nick.encode('utf-8'))
+ok_msg=s.recv(2048).decode('utf-8')
+print(ok_msg)
+if ok_msg == "OK":
+    pass
+elif ok_msg == "*check Nickname*":
+    print('Nickname is restricted to 12 characters without special characters ')
+    print('TRY again by giving a valid Nickname')
+    sys.exit()
+    
+    while True:
+    socket_list=[sys.stdin, s]
+    
+
+    read_sockets,write_sockets,error_sockets=select.select(socket_list,[],[])
+    
+    for sockets in read_sockets:
+        if sockets == s:
+            message = sockets.recv(2048).decode('utf-8')
+            print(message)
+        else:
+            message=sys.stdin.readline()
+            
+            message = 'MSG '+ message
+            if message == '\n':
+                continue
+            else:
+                s.sendall(message.encode('utf-8'))
+                
+s.close()
+
+
+
