@@ -13,12 +13,12 @@ if len(sys.argv)!=2:
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 info = (sys.argv[1])
-arg=info.split(':')
-addr=str(arg[0])
-port=int(arg[1])
-s.bind((ipaddress,port))
+a=info.split(':')
+addr=str(a[0])
+port=int(a[1])
+s.bind((addr,port))
 s.listen(100)
-print('wait for the clients to get connected.')
+print('wait for the clients to get connected.')')
 clients=[]
 clients.append(s)
 
@@ -34,10 +34,10 @@ def clientthread(connection,address):
                 connection.sendall('OK'.encode('utf-8'))
                 break
             elif len(nick1) or regex.search(nick1) != None:
-                connection.sendall('*check Nickname*'.encode('utf-8'))
+                connection.sendall('*Err: check nick name'.encode('utf-8'))
             else:
                 connection.close()
-                print(address[0]+" has been disconnected")
+                print(address[0]+" has disconnected")
                 clients.remove(connection)
                 del clients[connection]
                 break
