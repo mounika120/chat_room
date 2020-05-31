@@ -7,35 +7,44 @@ import select
 import re 
 
 if len(sys.argv)!=3:
-    print("the input format should be ipaddress:portnumber")
+    print("the input format should be in ipaddress:portnumber")
     sys.exit()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 info = (sys.argv[1])
 a=info.split(':')
 addr=str(a[0])
-port=int(a[1])
+portn=int(a[1])
 nick=str(sys.argv[2])
 
 
 s.connect((addr, port))
 
-MSG1=s.recv(2048).decode('utf-8')
-print(MSG1)
+first_msg=s.recv(2048).decode('utf-8')
+
+print(first_msg)
+
 nick = 'NICK ' + nick
+
+
 s.sendall(nick.encode('utf-8'))
+
 ok_msg=s.recv(2048).decode('utf-8')
 print(ok_msg)
 if ok_msg == "OK":
     pass
-elif ok_msg == "*check Nickname*":
-    print('Nickname is restricted to 12 characters without special characters ')
-    print('TRY again by giving a valid Nickname')
+elif ok_msg == "error occured":
+    print('nickname is only 12characters without special charaters')
+    print('try again by giving valid nickname')
     sys.exit()
     
-    while True:
+    
+
+
+
+while True:
     socket_list=[sys.stdin, s]
     
 
@@ -55,6 +64,3 @@ elif ok_msg == "*check Nickname*":
                 s.sendall(message.encode('utf-8'))
                 
 s.close()
-
-
-
